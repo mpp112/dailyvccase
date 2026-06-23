@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/source.schema.json",
+  "title": "Research Source",
+  "type": "object",
+  "required": [
+    "source_id",
+    "url",
+    "publisher",
+    "title",
+    "accessed_at",
+    "tier",
+    "language",
+    "content_type"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "publisher": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "published_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "accessed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "language": {
+      "type": "string"
+    },
+    "content_type": {
+      "type": "string"
+    },
+    "content_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "archive_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "access_notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

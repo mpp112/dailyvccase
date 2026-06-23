@@ -1,0 +1,39 @@
+project:
+  name: vc-research-os
+
+scope:
+  regions:
+    - United States
+    - Europe
+    - Israel
+    - Singapore
+
+  stages:
+    - Pre-Seed
+    - Seed
+    - Series A
+    - Series B
+
+  industries:
+    primary:
+      - AI Applications
+      - Robotics
+
+    description:
+      AI Applications: >
+        包括面向企业和个人的AI软件应用，如AI Agent、Copilot工具、
+        AI SaaS、企业自动化工具、AI工作流、垂直行业AI解决方案等。
+
+      Robotics: >
+        包括工业机器人、服务机器人、人形机器人、自动化硬件系统、
+        机器人软件栈（感知、控制、规划）、以及软硬一体解决方案。
+
+  constraints:
+    max_case_age_hours: 72
+    max_primary_china_comparables: 1
+    max_secondary_china_comparables: 2
+
+output:
+  language: zh-CN
+  require_human_approval: true
+  auto_publish: false

@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/case.schema.json",
+  "title": "VC Research Case",
+  "type": "object",
+  "required": [
+    "case_id",
+    "as_of_date",
+    "status",
+    "foreign_company",
+    "deal",
+    "sources",
+    "claims",
+    "china_comparables"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "as_of_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "enum": [
+        "discovered",
+        "shortlisted",
+        "researching",
+        "evidence_complete",
+        "qa_failed",
+        "qa_passed",
+        "ready_to_publish",
+        "published",
+        "monitoring"
+      ]
+    },
+    "foreign_company": {
+      "$ref": "#/$defs/company"
+    },
+    "deal": {
+      "$ref": "#/$defs/deal"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "source.schema.json"
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "$ref": "claim.schema.json"
+      }
+    },
+    "china_comparables": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "required": [
+          "company",
+          "scores",
+          "total_score",
+          "comparison_type",
+          "why_comparable",
+          "why_not_comparable"
+        ],
+        "properties": {
+          "company": {
+            "$ref": "#/$defs/company"
+          },
+          "scores": {
+            "type": "object",
+            "required": [
+              "customer",
+              "pain",
+              "product",
+              "business_model",
+              "go_to_market",
+              "stage"
+            ],
+            "properties": {
+              "customer": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20
+              },
+              "pain": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 25
+              },
+              "product": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20
+              },
+              "business_model": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 15
+              },
+              "go_to_market": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 10
+              },
+              "stage": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 10
+              }
+            },
+            "additionalProperties": false
+          },
+          "total_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "comparison_type": {
+            "enum": [
+              "direct",
+              "adjacent",
+              "reference"
+            ]
+          },
+          "why_comparable": {
+            "type": "string"
+          },
+          "why_not_comparable": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "human_approved": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "$defs": {
+    "company": {
+      "type": "object",
+      "required": [
+        "company_id",
+        "brand_name",
+        "country"
+      ],
+      "properties": {
+        "company_id": {
+          "type": "string"
+        },
+        "legal_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "brand_name": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "country": {
+          "type": "string"
+        },
+        "website": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "product_summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "customer_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "business_model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "deal": {
+      "type": "object",
+      "required": [
+        "event_id",
+        "announcement_date",
+        "round_label_raw"
+      ],
+      "properties": {
+        "event_id": {
+          "type": "string"
+        },
+        "announcement_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "round_label_raw": {
+          "type": "string"
+        },
+        "round_normalized": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amount_original": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "currency_original": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Z]{3}$"
+        },
+        "valuation": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "valuation_status": {
+          "enum": [
+            "official",
+            "media_estimate",
+            "undisclosed",
+            "not_applicable"
+          ]
+        },
+        "lead_investors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "other_investors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

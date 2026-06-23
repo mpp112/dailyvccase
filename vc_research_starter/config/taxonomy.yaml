@@ -1,0 +1,40 @@
+claim_types:
+  F: confirmed_fact
+  S: signal_or_proxy
+  H: hypothesis
+confidence:
+  A: primary_source_direct
+  B: primary_plus_secondary_or_two_independent_secondary
+  C: single_credible_secondary_or_commercial_database
+  D: proxy_inference_unverified_or_conflicted
+source_tiers:
+  1: primary
+  2: credible_secondary
+  3: commercial_database_or_aggregator
+  4: proxy_signal
+comparable_types:
+  direct: score_gte_75
+  adjacent: score_55_to_74
+  reference: score_lt_55
+rounds:
+  - Pre-Seed
+  - Seed
+  - Angel
+  - Series A
+  - Series B
+  - Series C+
+  - Growth
+  - Strategic
+  - Debt
+  - Grant
+  - Unknown
+investor_types:
+  - VC
+  - PE
+  - CVC
+  - GovernmentGuidanceFund
+  - StateOwnedIndustrialFund
+  - FamilyOffice
+  - Accelerator
+  - CorporateDirect
+  - Other

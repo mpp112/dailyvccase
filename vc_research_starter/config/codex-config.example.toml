@@ -1,0 +1,10 @@
+# Copy selectively to .codex/config.toml after reviewing current Codex docs.
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+web_search = "live"
+
+[sandbox_workspace_write]
+network_access = false
+
+[features]
+multi_agent = true

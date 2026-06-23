@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/claim.schema.json",
+  "title": "Claim Evidence Record",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "case_id",
+    "statement",
+    "claim_type",
+    "topic",
+    "confidence",
+    "source_ids",
+    "review_status"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_type": {
+      "enum": [
+        "F",
+        "S",
+        "H"
+      ]
+    },
+    "topic": {
+      "type": "string"
+    },
+    "confidence": {
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "quoted_excerpt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "location_hint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "conflict_status": {
+      "enum": [
+        "none",
+        "possible",
+        "confirmed",
+        "resolved"
+      ]
+    },
+    "review_status": {
+      "enum": [
+        "unreviewed",
+        "accepted",
+        "rejected",
+        "needs_more_evidence"
+      ]
+    },
+    "reviewer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "claim_type": {
+            "const": "F"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source_ids": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

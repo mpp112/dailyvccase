@@ -1,0 +1,19 @@
+publish_threshold: 85
+redlines:
+  - fabricated_critical_fact
+  - round_amount_cumulative_valuation_confusion
+  - shareholder_change_treated_as_financing
+  - critical_fact_only_tier_3_or_4
+  - direct_comparable_score_below_75
+  - fact_signal_hypothesis_not_separated
+  - unresolved_critical_source_conflict
+  - no_human_approval
+  - access_control_bypass
+weights:
+  deal_accuracy: 25
+  provenance: 15
+  company_research: 15
+  investment_logic: 15
+  china_comparable: 15
+  financing_and_investors: 10
+  writing_and_recency: 5

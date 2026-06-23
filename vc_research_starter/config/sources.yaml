@@ -1,0 +1,75 @@
+sources:
+  - id: sec_edgar_search
+    name: SEC EDGAR Search
+    region: US
+    tier: 1
+    collection: api_or_manual
+    url: https://www.sec.gov/search-filings
+    notes: Respect SEC fair-access guidance; Form D is a notice, not necessarily final close.
+  - id: sec_form_d_datasets
+    name: SEC Form D Data Sets
+    region: US
+    tier: 1
+    collection: structured_download
+    url: https://www.sec.gov/data-research/sec-markets-data/form-d-data-sets
+  - id: companies_house
+    name: Companies House
+    region: UK
+    tier: 1
+    collection: api_or_manual
+    url: https://find-and-update.company-information.service.gov.uk/
+  - id: companies_house_api
+    name: Companies House API
+    region: UK
+    tier: 1
+    collection: official_api
+    url: https://developer.company-information.service.gov.uk/
+  - id: gsxt
+    name: 国家企业信用信息公示系统
+    region: CN
+    tier: 1
+    collection: manual
+    url: https://www.gsxt.gov.cn/
+  - id: cninfo
+    name: 巨潮资讯
+    region: CN
+    tier: 1
+    collection: manual_or_authorized_interface
+    url: https://www.cninfo.com.cn/
+  - id: hkexnews
+    name: 港交所披露易
+    region: HK
+    tier: 1
+    collection: manual_or_public_search
+    url: https://www.hkexnews.hk/
+  - id: amac
+    name: 中国证券投资基金业协会信息公示
+    region: CN
+    tier: 1
+    collection: manual
+    url: https://gs.amac.org.cn/
+  - id: company_newsroom
+    name: Company newsroom
+    region: GLOBAL
+    tier: 1
+    collection: rss_or_public_page
+    url: null
+  - id: investor_announcement
+    name: Investor announcement / Why we invested
+    region: GLOBAL
+    tier: 1
+    collection: rss_or_public_page
+    url: null
+  - id: credible_media
+    name: Credible edited media
+    region: GLOBAL
+    tier: 2
+    collection: rss_api_or_manual
+    url: null
+  - id: commercial_database
+    name: Licensed commercial database
+    region: GLOBAL
+    tier: 3
+    collection: authorized_api_or_manual_export
+    url: null
+    notes: Never implement unlicensed scraping.
