@@ -169,7 +169,7 @@ def publish_status(
 def publish_record(
     case_id: Annotated[str, typer.Option()],
     article_title: Annotated[str, typer.Option()],
-    publish_date: Annotated[date, typer.Option()],
+    publish_date: Annotated[str, typer.Option(help="Publish date in YYYY-MM-DD format.")],
     article_id_or_url: Annotated[str, typer.Option()],
     record_path: Annotated[Path | None, typer.Option()] = None,
 ) -> None:
@@ -179,7 +179,7 @@ def publish_record(
         target,
         case_id=case_id,
         article_title=article_title,
-        publish_date=publish_date,
+        publish_date=date.fromisoformat(publish_date),
         article_id_or_url=article_id_or_url,
     )
     typer.echo(json.dumps({"record_path": str(target)}, ensure_ascii=False))

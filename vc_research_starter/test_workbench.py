@@ -100,6 +100,23 @@ def test_cli_smoke(tmp_path: Path) -> None:
     assert result.exit_code == 0
     result = runner.invoke(app, ["validate", "--case-id", "case_pass", "--db", str(db)])
     assert result.exit_code == 0
+    result = runner.invoke(
+        app,
+        [
+            "publish-record",
+            "--case-id",
+            "case_pass",
+            "--article-title",
+            "Sample Case",
+            "--publish-date",
+            "2026-06-23",
+            "--article-id-or-url",
+            "https://example.com/article",
+            "--record-path",
+            str(tmp_path / "records.jsonl"),
+        ],
+    )
+    assert result.exit_code == 0
 
 
 def test_publishing_pipeline_outputs_wechat_artifacts(tmp_path: Path) -> None:
