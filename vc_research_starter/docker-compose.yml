@@ -1,4 +1,6 @@
-﻿services:
+﻿version: "3.8"
+
+services:
   vc-research:
     build: .
     image: dailyvccase-vc-research:latest

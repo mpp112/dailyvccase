@@ -39,7 +39,8 @@ jobs:
             cd vc_research_starter
             cp -n .env.example .env || true
             mkdir -p data/raw data/normalized data/output
-            docker compose build
-            docker compose run --rm vc-research vc-research init-db
-            docker compose run --rm vc-research python -m pytest
+            docker-compose build
+            docker-compose run --rm vc-research vc-research init-db
+            docker-compose run --rm vc-research python -m pytest
             docker image prune -f
+
