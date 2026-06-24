@@ -25,6 +25,7 @@ jobs:
             set -euo pipefail
             APP_DIR="${{ secrets.VPS_APP_DIR }}"
             REPO="git@github.com:${{ github.repository }}.git"
+            IMAGE="dailyvccase-vc-research:latest"
 
             mkdir -p "$APP_DIR"
             cd "$APP_DIR"
@@ -39,8 +40,7 @@ jobs:
             cd vc_research_starter
             cp -n .env.example .env || true
             mkdir -p data/raw data/normalized data/output
-            docker-compose build
-            docker-compose run --rm vc-research vc-research init-db
-            docker-compose run --rm vc-research python -m pytest
+            docker build -t "$IMAGE" .
+            docker run --rm --env-file .env -v "$PWD/data:/app/data" "$IMAGE" vc-research init-db
+            docker run --rm --env-file .env -v "$PWD/data:/app/data" "$IMAGE" python -m pytest
             docker image prune -f
-
