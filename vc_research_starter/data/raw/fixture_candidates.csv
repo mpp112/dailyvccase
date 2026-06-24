@@ -1,0 +1,3 @@
+candidate_id,discovered_at,company_name,country,sector,round_raw,amount_raw,currency,lead_investors,announcement_date,source_url,source_tier,score,status,notes
+cand_fixture_001,2026-06-22T08:00:00+00:00,Nebula Ledger Labs Inc.,United States,AI Applications,Seed,5000000,USD,Example Ventures,2026-06-22,https://fixture.local/nebula-ledger/press,1,0,discovered,FICTIONAL FIXTURE
+cand_fixture_001_dup,2026-06-22T09:00:00+00:00,Nebula Ledger Labs,United States,AI Applications,Seed,5000000,USD,Example Ventures,2026-06-22,https://fixture.local/nebula-ledger/investor,1,0,discovered,Duplicate event fixture

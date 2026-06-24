@@ -1,0 +1,16 @@
+{
+  "case_id": "case_conflict",
+  "as_of_date": "2026-06-22",
+  "status": "qa_failed",
+  "human_approved": false,
+  "foreign_company": {"company_id": "co_orbit_forms", "brand_name": "Orbit Forms", "country": "United States"},
+  "deal": {"event_id": "event_orbit_seed", "company_id": "co_orbit_forms", "announcement_date": "2026-06-21", "round_label_raw": "Seed", "amount_original": 7000000, "currency_original": "USD", "valuation_status": "undisclosed", "lead_investors": ["Imaginary Partners"], "other_investors": []},
+  "sources": [
+    {"source_id": "src_orbit_a", "url": "https://fixture.local/orbit/a", "publisher": "Orbit Forms", "title": "FICTIONAL FIXTURE: Orbit Forms seed", "accessed_at": "2026-06-22T10:00:00+00:00", "tier": 1, "language": "en", "content_type": "fixture"},
+    {"source_id": "src_orbit_b", "url": "https://fixture.local/orbit/b", "publisher": "Fictional Media", "title": "FICTIONAL FIXTURE: Orbit Forms raises a different amount", "accessed_at": "2026-06-22T10:00:00+00:00", "tier": 2, "language": "en", "content_type": "fixture"}
+  ],
+  "claims": [
+    {"claim_id": "cl_orbit_amount_conflict", "case_id": "case_conflict", "statement": "Orbit Forms raised either USD 7 million or USD 9 million in this fictional fixture.", "claim_type": "F", "topic": "amount", "confidence": "D", "source_ids": ["src_orbit_a", "src_orbit_b"], "conflict_status": "confirmed", "review_status": "needs_more_evidence"}
+  ],
+  "china_comparables": []
+}

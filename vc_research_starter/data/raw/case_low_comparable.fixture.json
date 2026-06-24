@@ -1,0 +1,25 @@
+{
+  "case_id": "case_low_comparable",
+  "as_of_date": "2026-06-22",
+  "status": "qa_failed",
+  "human_approved": false,
+  "foreign_company": {"company_id": "co_tiny_robot", "brand_name": "Tiny Robot Dock", "country": "Singapore"},
+  "deal": {"event_id": "event_tiny_robot_seed", "company_id": "co_tiny_robot", "announcement_date": "2026-06-20", "round_label_raw": "Seed", "amount_original": 3000000, "currency_original": "USD", "valuation_status": "undisclosed", "lead_investors": ["Fixture Robotics Fund"], "other_investors": []},
+  "sources": [
+    {"source_id": "src_tiny_robot", "url": "https://fixture.local/tiny-robot", "publisher": "Tiny Robot Dock", "title": "FICTIONAL FIXTURE: Tiny Robot Dock seed", "accessed_at": "2026-06-22T10:00:00+00:00", "tier": 1, "language": "en", "content_type": "fixture"}
+  ],
+  "claims": [
+    {"claim_id": "cl_tiny_amount", "case_id": "case_low_comparable", "statement": "Tiny Robot Dock announced a fictional USD 3 million seed round.", "claim_type": "F", "topic": "amount", "confidence": "A", "source_ids": ["src_tiny_robot"], "conflict_status": "none", "review_status": "accepted"}
+  ],
+  "china_comparables": [
+    {
+      "comparable_id": "cmp_tiny_unrelated",
+      "foreign_company_id": "co_tiny_robot",
+      "china_company": {"company_id": "co_unrelated_crm", "brand_name": "虚构CRM", "country": "China"},
+      "scores": {"customer": 8, "pain": 10, "product": 8, "business_model": 7, "go_to_market": 5, "stage": 5},
+      "comparison_type": "direct",
+      "why_comparable": "都服务企业客户。",
+      "why_not_comparable": "客户、产品、交付和硬件属性均不一致。"
+    }
+  ]
+}

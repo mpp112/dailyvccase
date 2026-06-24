@@ -1,0 +1,90 @@
+{
+  "case_id": "case_pass",
+  "as_of_date": "2026-06-22",
+  "status": "qa_passed",
+  "human_approved": true,
+  "headline_thesis": "以合规工作流自动化切入中小金融机构运营",
+  "foreign_company": {
+    "company_id": "co_nebula_ledger",
+    "brand_name": "Nebula Ledger",
+    "legal_name": "Nebula Ledger Labs Inc.",
+    "aliases": ["Nebula Ledger Labs"],
+    "country": "United States",
+    "website": "https://fixture.local/nebula-ledger",
+    "product_summary": "FICTIONAL FIXTURE: AI workflow tool for compliance operations.",
+    "customer_type": "mid-market financial institutions",
+    "business_model": "SaaS subscription",
+    "deployment_model": "cloud",
+    "sector_tags": ["AI Applications"]
+  },
+  "deal": {
+    "event_id": "event_nebula_seed",
+    "company_id": "co_nebula_ledger",
+    "announcement_date": "2026-06-22",
+    "round_label_raw": "Seed",
+    "round_normalized": "Seed",
+    "amount_original": 5000000,
+    "currency_original": "USD",
+    "valuation_status": "undisclosed",
+    "lead_investors": ["Example Ventures"],
+    "other_investors": ["Fictional Capital"],
+    "fund_use": ["product", "go-to-market"]
+  },
+  "sources": [
+    {
+      "source_id": "src_nebula_company",
+      "url": "https://fixture.local/nebula-ledger/press",
+      "publisher": "Nebula Ledger",
+      "title": "FICTIONAL FIXTURE: Nebula Ledger announces seed financing",
+      "published_at": "2026-06-22T08:00:00+00:00",
+      "accessed_at": "2026-06-22T10:00:00+00:00",
+      "tier": 1,
+      "language": "en",
+      "content_type": "fixture_press_release",
+      "content_hash": "fixture-nebula-company"
+    }
+  ],
+  "claims": [
+    {"claim_id": "cl_nebula_company", "case_id": "case_pass", "statement": "Nebula Ledger is a fictional US company.", "claim_type": "F", "topic": "company", "confidence": "A", "source_ids": ["src_nebula_company"], "conflict_status": "none", "review_status": "accepted"},
+    {"claim_id": "cl_nebula_amount", "case_id": "case_pass", "statement": "Nebula Ledger announced a fictional USD 5 million seed round.", "claim_type": "F", "topic": "amount", "confidence": "A", "source_ids": ["src_nebula_company"], "conflict_status": "none", "review_status": "accepted"},
+    {"claim_id": "cl_nebula_round", "case_id": "case_pass", "statement": "The round label is Seed.", "claim_type": "F", "topic": "round", "confidence": "A", "source_ids": ["src_nebula_company"], "conflict_status": "none", "review_status": "accepted"},
+    {"claim_id": "cl_nebula_investors", "case_id": "case_pass", "statement": "Example Ventures is the fictional lead investor.", "claim_type": "F", "topic": "investors", "confidence": "A", "source_ids": ["src_nebula_company"], "conflict_status": "none", "review_status": "accepted"},
+    {"claim_id": "cl_nebula_hypothesis", "case_id": "case_pass", "statement": "If compliance teams keep audit work in spreadsheets, workflow automation may reduce review time.", "claim_type": "H", "topic": "investment_logic", "confidence": "B", "source_ids": ["src_nebula_company"], "conflict_status": "none", "review_status": "accepted"}
+  ],
+  "china_comparables": [
+    {
+      "comparable_id": "cmp_nebula_shanghai",
+      "foreign_company_id": "co_nebula_ledger",
+      "china_company": {
+        "company_id": "co_shanghai_auditflow",
+        "brand_name": "审流云",
+        "legal_name": "上海审流云科技有限公司（虚构）",
+        "aliases": ["AuditFlow CN"],
+        "country": "China",
+        "product_summary": "FICTIONAL FIXTURE: compliance workflow SaaS."
+      },
+      "scores": {"customer": 18, "pain": 22, "product": 18, "business_model": 13, "go_to_market": 8, "stage": 8},
+      "comparison_type": "direct",
+      "why_comparable": "客户、痛点和产品工作流高度相似。",
+      "why_not_comparable": "监管环境和销售周期不同。"
+    }
+  ],
+  "financing_history": [
+    {
+      "history_id": "hist_auditflow_seed",
+      "company_id": "co_shanghai_auditflow",
+      "announcement_date": "2025-10-01",
+      "round_raw": "天使轮",
+      "round_normalized": "Angel",
+      "amount_raw": "未披露",
+      "lead_investors": ["虚构人民币基金"],
+      "legal_investment_entity": "虚构人民币基金一期合伙企业",
+      "brand_or_manager": "虚构人民币基金",
+      "confidence": "B",
+      "source_ids": ["src_nebula_company"]
+    }
+  ],
+  "investors": [
+    {"investor_id": "inv_example_ventures", "brand_name": "Example Ventures", "legal_entity_name": "Example Ventures Fund I LP", "investor_type": "VC", "country": "United States", "first_entry_round": "Seed", "follow_on_status": "unknown"}
+  ]
+}
