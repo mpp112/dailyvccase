@@ -1,4 +1,75 @@
-# 海外 VC 案例研究系统｜启动包
+# 海外 VC 案例研究工作台 MVP
+
+这是一个 provenance-first 的 VC 案例研究工作台：先结构化事实、来源和 Claim-Evidence，再做中国对标、融资历史、QA 和中文 Markdown 报告渲染。
+
+## 安装
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+## 每日最小操作
+
+```bash
+vc-research init-db
+vc-research import-candidates data/raw/fixture_candidates.csv
+vc-research score-candidates
+vc-research seed-fixture-cases
+vc-research validate --case-id case_pass
+vc-research render --case-id case_pass
+vc-research weekly-review --week 2026-W26
+```
+
+渲染结果默认写入 `data/output/case_pass.md`。
+
+## 当前实现
+
+- 融资候选 CSV/JSON 导入、幂等去重和评分。
+- Company、FinancingEvent、Investor、Source、Claim、Comparable、FinancingHistory 数据模型。
+- Claim-Evidence 可信度和来源绑定。
+- 中国对标六维评分与 direct/adjacent/reference 分类。
+- 融资历史和投资机构主体映射字段。
+- 确定性 QA 红线规则。
+- 中文 Markdown 日报渲染，包含 `as_of_date` 和来源清单。
+- 三个完全虚构 fixture：通过、金额冲突失败、低分直接对标失败。
+- 单元测试和端到端 smoke test。
+
+## Fixture QA 预期
+
+```bash
+vc-research seed-fixture-cases
+vc-research validate --case-id case_pass
+vc-research validate --case-id case_conflict
+vc-research validate --case-id case_low_comparable
+```
+
+- `case_pass`：应通过。
+- `case_conflict`：应因关键金额低可信度和来源冲突失败。
+- `case_low_comparable`：应因低于 75 分却标为直接对标失败。
+
+## 质量检查
+
+完成前必须实际运行：
+
+```bash
+python -m ruff format .
+python -m ruff check .
+python -m mypy src/vc_research
+python -m pytest
+```
+
+## 真实数据源待接入
+
+当前没有真实 API 凭证，也不抓取登录、验证码或付费页面，因此只实现 adapter 预留、手工 CSV/JSON 和 fixture。后续可接入：
+
+- SEC EDGAR / Form D 官方公开数据；
+- Companies House 官方 API；
+- 公司官网、投资机构官网、公开 RSS；
+- 授权商业数据库导出 CSV。
+
+所有接入都必须保留 Source 元数据，不伪造 API 返回，不绕过访问控制。
+
+## 原始启动包说明
 
 目标：每个工作日产出一份可追溯的海外 VC 投资案例研究，覆盖：
 

@@ -1,0 +1,11 @@
+﻿services:
+  vc-research:
+    build: .
+    image: dailyvccase-vc-research:latest
+    restart: "no"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    working_dir: /app
+    command: ["vc-research", "--help"]
